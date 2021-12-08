@@ -1,8 +1,8 @@
 /// Module implementing an odd coin, where only odd number of coins can be
 /// transferred each time.
-module CoinSwap::PoolToken {
+module Sender::PoolToken {
     use Std::Signer;
-    use CoinSwap::BasicCoin;
+    use Sender::BasicCoin;
 
     struct PoolToken<phantom CoinType1, phantom CoinType2> has drop {}
 
@@ -17,4 +17,3 @@ module CoinSwap::PoolToken {
         BasicCoin::transfer<PoolToken<CoinType1, CoinType2>>(from, to, amount);
     }
 }
-
