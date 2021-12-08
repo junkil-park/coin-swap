@@ -1,9 +1,7 @@
 module CoinSwap::CoinSwap {
     use Std::Signer;
-    use CoinSwap::BasicCoin::{Self, Coin};
-    use CoinSwap::PoolToken::{Self, PoolToken};
-    use CoinSwap::BulldogCoin;
-    use CoinSwap::PoodleCoin;
+    use CoinSwap::BasicCoin::{Self};
+    use CoinSwap::PoolToken::{Self};
 
     struct LiquidityPool<phantom CoinType1, phantom CoinType2> has key {
         coin1: u64,

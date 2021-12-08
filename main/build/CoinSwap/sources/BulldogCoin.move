@@ -10,11 +10,11 @@ module CoinSwap::BulldogCoin {
 
     public fun setup_and_mint(account: &signer, amount: u64) {
         BasicCoin::publish_balance<BulldogCoin>(account);
-        BasicCoin::mint<BulldogCoin>(Signer::address_of(account), amount, BulldogCoin {});
+        BasicCoin::mint<BulldogCoin>(Signer::address_of(account), amount);
     }
 
     public fun transfer(from: &signer, to: address, amount: u64) {
-        BasicCoin::transfer<BulldogCoin>(from, to, amount, BulldogCoin {});
+        BasicCoin::transfer<BulldogCoin>(from, to, amount);
     }
 }
 

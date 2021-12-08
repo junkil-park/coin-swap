@@ -3,6 +3,8 @@ module CoinSwap::BasicCoin {
     use Std::Errors;
     use Std::Signer;
 
+    friend CoinSwap::CoinSwap;
+
     /// Error codes
     const ENOT_MODULE_OWNER: u64 = 0;
     const EINSUFFICIENT_BALANCE: u64 = 1;
@@ -24,9 +26,7 @@ module CoinSwap::BasicCoin {
         move_to(account, Balance<CoinType> { coin:  empty_coin });
     }
 
-    /// Mint `amount` tokens to `mint_addr`. This method requires a witness with `CoinType` so that the
-    /// module that owns `CoinType` can decide the minting policy.
-    public fun mint<CoinType: drop>(mint_addr: address, amount: u64, _witness: CoinType) acquires Balance {
+    public fun mint<CoinType: drop>(mint_addr: address, amount: u64) acquires Balance {
         // Deposit `total_value` amount of tokens to mint_addr's balance
         deposit(mint_addr, Coin<CoinType> { value: amount });
     }
@@ -35,9 +35,7 @@ module CoinSwap::BasicCoin {
         borrow_global<Balance<CoinType>>(owner).coin.value
     }
 
-    /// Transfers `amount` of tokens from `from` to `to`. This method requires a witness with `CoinType` so that the
-    /// module that owns `CoinType` can decide the transferring policy.
-    public fun transfer<CoinType: drop>(from: &signer, to: address, amount: u64, _witness: CoinType) acquires Balance {
+    public fun transfer<CoinType: drop>(from: &signer, to: address, amount: u64) acquires Balance {
         let check = withdraw<CoinType>(Signer::address_of(from), amount);
         deposit<CoinType>(to, check);
     }
