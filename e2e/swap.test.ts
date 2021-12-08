@@ -9,10 +9,21 @@ import {
   import * as mv from "../main/move.ts";
 
   Deno.test("Test Swap", async () => {
-    let scriptFunction: string = context.defaultUserContext.address + "::PoodleCoin::setup_and_mint";
+
+    // mint bulldogs and poodles
     let typeArguments: string[] = [];
     let args: any[] = [mv.U64("1000")];
-    let txn = await helpers.invokeScriptFunction(scriptFunction, typeArguments, args);
-    txn = await devapi.waitForTransaction(txn.hash);
-    assert("hello");
+    let poodleMint: string = context.defaultUserContext.address + "::PoodleCoin::setup_and_mint";
+    let poodleMintTxn = await helpers.invokeScriptFunction(poodleMint, typeArguments, args);
+    poodleMintTxn = await devapi.waitForTransaction(poodleMintTxn.hash);
+    let bulldogMint: string = context.defaultUserContext.address + "::BulldogCoin::setup_and_mint";
+    let bulldogMintTxn = await helpers.invokeScriptFunction(bulldogMint, typeArguments, args);
+    bulldogMintTxn = await devapi.waitForTransaction(bulldogMintTxn.hash);
+    assert(poodleMintTxn.success);
+    assert(bulldogMintTxn.success);
+
+
+
+
+
   });
