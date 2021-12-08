@@ -13,5 +13,6 @@ import {
     let typeArguments: string[] = [];
     let args: any[] = [mv.U64("1000")];
     let txn = await helpers.invokeScriptFunction(scriptFunction, typeArguments, args);
+    txn = await devapi.waitForTransaction(txn.hash);
     assert("hello");
   });

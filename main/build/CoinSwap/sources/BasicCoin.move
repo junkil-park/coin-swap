@@ -3,7 +3,7 @@ module Sender::BasicCoin {
     use Std::Errors;
     use Std::Signer;
 
-    friend Sender::CoinSwap;
+    // friend Sender::CoinSwap;
 
     /// Error codes
     const ENOT_MODULE_OWNER: u64 = 0;
