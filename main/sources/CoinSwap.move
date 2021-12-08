@@ -9,18 +9,18 @@ module Sender::CoinSwap {
         share: u64,
     }
 
-    public fun create_pool<CoinType1: drop, CoinType2: drop>(coinswap: &signer, requester: &signer, coin1: u64, coin2: u64) {
+    public fun create_pool<CoinType1: drop, CoinType2: drop>(coinswap: &signer, requester: &signer, coin1: u64, coin2: u64, share: u64) {
         // create a pool at @CoinSwap
         BasicCoin::publish_balance<CoinType1>(coinswap);
         BasicCoin::publish_balance<CoinType2>(coinswap);
-        move_to(coinswap, LiquidityPool<CoinType1, CoinType2>{coin1, coin2, share: 100});
+        move_to(coinswap, LiquidityPool<CoinType1, CoinType2>{coin1, coin2, share});
 
         // transfer coin1 and coin2 from account to @CoinSwap
         BasicCoin::transfer<CoinType1>(requester, Signer::address_of(coinswap), coin1);
         BasicCoin::transfer<CoinType2>(requester, Signer::address_of(coinswap), coin2);
 
         // deposit PoolToken at account
-        PoolToken::setup_and_mint<CoinType1, CoinType2>(requester, 100);
+        PoolToken::setup_and_mint<CoinType1, CoinType2>(requester, share);
     }
 
     fun getInputPrice(input_amount: u64, input_reserve: u64, output_reserve: u64): u64 {
