@@ -1,8 +1,8 @@
 /// Module implementing an odd coin, where only odd number of coins can be
 /// transferred each time.
-module CoinSwap::PoodleCoin {
+module Sender::PoodleCoin {
     use Std::Signer;
-    use CoinSwap::BasicCoin;
+    use Sender::BasicCoin;
 
     struct PoodleCoin has drop {}
 
@@ -17,4 +17,3 @@ module CoinSwap::PoodleCoin {
         BasicCoin::transfer<PoodleCoin>(from, to, amount);
     }
 }
-

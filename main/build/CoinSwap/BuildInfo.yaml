@@ -2,8 +2,7 @@
 compiled_package_info:
   package_name: CoinSwap
   address_alias_instantiation:
-    CoinSwap: 0000000000000000000000000000cafe
-    Sender: ec40054cf942b84862fb1b78c3c4bb0c
+    Sender: 1755ea6281e18647b7b86a1705c72d4b
     Std: "00000000000000000000000000000001"
   module_resolution_metadata:
     ? address: "00000000000000000000000000000001"
@@ -42,22 +41,22 @@ compiled_package_info:
     ? address: "00000000000000000000000000000001"
       name: Vector
     : Std
-    ? address: 0000000000000000000000000000cafe
+    ? address: 1755ea6281e18647b7b86a1705c72d4b
       name: BasicCoin
-    : CoinSwap
-    ? address: 0000000000000000000000000000cafe
+    : Sender
+    ? address: 1755ea6281e18647b7b86a1705c72d4b
       name: BulldogCoin
-    : CoinSwap
-    ? address: 0000000000000000000000000000cafe
+    : Sender
+    ? address: 1755ea6281e18647b7b86a1705c72d4b
       name: CoinSwap
-    : CoinSwap
-    ? address: 0000000000000000000000000000cafe
+    : Sender
+    ? address: 1755ea6281e18647b7b86a1705c72d4b
       name: PoodleCoin
-    : CoinSwap
-    ? address: 0000000000000000000000000000cafe
+    : Sender
+    ? address: 1755ea6281e18647b7b86a1705c72d4b
       name: PoolToken
-    : CoinSwap
-  source_digest: 8A0FD5FA268388ECE72DF9E99BD6CE926A3A5F48749D7B0066561EF946767578
+    : Sender
+  source_digest: D615557D8982E556F3F5A37A9F05AAA0C1F26E07DF358E8C693EEA6E23D790FB
   build_flags:
     dev_mode: true
     test_mode: false
@@ -66,6 +65,6 @@ compiled_package_info:
     install_dir: ~
     force_recompilation: false
     additional_named_addresses:
-      Sender: ec40054cf942b84862fb1b78c3c4bb0c
+      Sender: 1755ea6281e18647b7b86a1705c72d4b
 dependencies:
   - MoveStdlib

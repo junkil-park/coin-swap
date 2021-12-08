@@ -1,7 +1,7 @@
-module CoinSwap::CoinSwap {
+module Sender::CoinSwap {
     use Std::Signer;
-    use CoinSwap::BasicCoin::{Self};
-    use CoinSwap::PoolToken::{Self};
+    use Sender::BasicCoin::{Self};
+    use Sender::PoolToken::{Self};
 
     struct LiquidityPool<phantom CoinType1, phantom CoinType2> has key {
         coin1: u64,

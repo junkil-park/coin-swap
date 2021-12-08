@@ -1,8 +1,8 @@
 /// Module implementing an odd coin, where only odd number of coins can be
 /// transferred each time.
-module CoinSwap::BulldogCoin {
+module Sender::BulldogCoin {
     use Std::Signer;
-    use CoinSwap::BasicCoin;
+    use Sender::BasicCoin;
 
     struct BulldogCoin has drop {}
 
@@ -17,4 +17,3 @@ module CoinSwap::BulldogCoin {
         BasicCoin::transfer<BulldogCoin>(from, to, amount);
     }
 }
-
