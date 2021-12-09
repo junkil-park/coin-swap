@@ -2,7 +2,7 @@
 compiled_package_info:
   package_name: MoveStdlib
   address_alias_instantiation:
-    Sender: 0421f80183b37dcdd6a22bc3e42b849f
+    Sender: ccf0525ae2ef59d084c14fb3458eb92b
     Std: "00000000000000000000000000000001"
   module_resolution_metadata:
     ? address: "00000000000000000000000000000001"
@@ -50,5 +50,5 @@ compiled_package_info:
     install_dir: ~
     force_recompilation: false
     additional_named_addresses:
-      Sender: 0421f80183b37dcdd6a22bc3e42b849f
+      Sender: ccf0525ae2ef59d084c14fb3458eb92b
 dependencies: []
