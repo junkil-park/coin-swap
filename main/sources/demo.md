@@ -4,12 +4,14 @@
 - main features
   - create_liquidity_pool<CoinType1, CoinType2>(...)
   - swap<CoinType1, CoinType2>(...)
-  - exchange rate to be determined by the constant product formula
+    - exchange rate to be determined by the constant product formula
 
 
 Scenario
+- accounts = CoinSwap, User1, User2
 - User1 creates a liquidity pool for BulldogCoin/PoodleCoin with some initial liquidity
     - User1 will receive some PoolToken as shares
+    - LiquidityPool will be created under CoinSwap
 - User2 exchanges BulldogCoin with PoodleCoin
     - transferring BulldogCoin from User2's balance to the pool
     - transferring PoodleCoin from the pool to User2's balance
@@ -32,6 +34,8 @@ To do (or work in progress):
 
 
 Difficulties
-- unable to write a generic `create_pool` due to the `witness` pattern used
-- needs `CoinSwap`'s signatrue to create the liquidity pool, and swap
-- need to trust `CoinSwap` where the liquidity pool is
+- unable to generically write generic `create_pool` due to the `witness` pattern used
+- needs `CoinSwap`'s signatrue to create a pool, and swap coins
+    - in creation: publish the LiquidityPool resource under CoinSwap
+    - in swap: withdraw coins from the LiquidityPool
+- need to trust the account owner of `CoinSwap` where the liquidity pool (billions of dollars) is
